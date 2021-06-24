@@ -1,0 +1,75 @@
+.Content {
+	position: absolute;
+	inset: 50% auto auto 50%;
+	border: 1px solid rgb(204, 204, 204);
+	background: rgb(255, 255, 255);
+	overflow: auto;
+	border-radius: 10px;
+	outline: none;
+	padding: 20px;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
+
+	.modal {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		padding: 48px 100px;
+
+		> svg {
+			width: 50px;
+			height: 50px;
+			path {
+				stroke: #e73f5d;
+			}
+		}
+		h2 {
+			padding-top: 30px;
+			color: #29292e;
+			font-family: "Poppins", sans-serif;
+		}
+		span {
+			margin-top: 14px;
+			color: #737380;
+		}
+		> div {
+			margin-top: 40px;
+			gap: 8px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			& button {
+				height: 50px;
+				border-radius: 8px;
+				font-weight: 500;
+				background: #dbdcdd;
+				color: #737380;
+				padding: 0 32px;
+
+				justify-content: center;
+				align-items: center;
+				cursor: pointer;
+				border: 0;
+
+				transition: filter 0.2s;
+
+				&:hover {
+					filter: brightness(0.9);
+				}
+
+				& + button {
+					background: #e73f5d;
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+
+.Overlay {
+	position: fixed;
+	inset: 0px;
+	background-color: rgba(0, 0, 0, 0.8);
+}
