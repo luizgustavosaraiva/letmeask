@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useHistory, useParams } from "react-router";
 import { database } from "../../services/firebase";
 import { useRoom } from "../../hooks/useRoom";
@@ -8,6 +8,8 @@ import { RoomCode } from "../../components/RoomCode";
 
 import logoImg from "../../assets/images/logo.svg";
 import deleteImg from "../../assets/images/delete.svg";
+import checkImg from "../../assets/images/check.svg";
+import answerImg from "../../assets/images/answer.svg";
 import styles from "./styles.module.scss";
 import { QuestionModal } from "../../components/QuestionModal";
 
@@ -53,6 +55,17 @@ export function AdminRoom() {
 		closeDeleteQuestionModal();
 	}
 
+	async function handleCheckQuestionAnswered(questionId: string) {
+		await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+			isAnswered: true,
+		});
+	}
+	async function handleHighlightQuestion(questionId: string) {
+		await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
+			isHighlighted: true,
+		});
+	}
+
 	return (
 		<div className={styles.page_room}>
 			<header>
@@ -92,7 +105,26 @@ export function AdminRoom() {
 							<Question
 								content={question.content}
 								author={question.author}
-								key={question.id}>
+								key={question.id}
+								isAnswered={question.isAnswered}
+								isHighlighted={question.isHighlighted}>
+								{!question.isAnswered && (
+									<React.Fragment>
+										<button
+											type="button"
+											onClick={() => handleCheckQuestionAnswered(question.id)}>
+											<img
+												src={checkImg}
+												alt="Marcar pergunta como respondida"
+											/>
+										</button>
+										<button
+											type="button"
+											onClick={() => handleHighlightQuestion(question.id)}>
+											<img src={answerImg} alt="Dar destaque à pergunta" />
+										</button>
+									</React.Fragment>
+								)}
 								<button
 									type="button"
 									onClick={() => openDeleteQuestionModal(question.id)}>

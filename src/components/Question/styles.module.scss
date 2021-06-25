@@ -12,6 +12,19 @@
 		color: #29292e;
 	}
 
+	&.highlighted {
+		background: #f4f0ff;
+		border: 2px solid #835afd;
+
+		footer .user_info span {
+			color: #29292e;
+		}
+	}
+
+	&.answered {
+		background: #dbdcdd;
+	}
+
 	footer {
 		display: flex;
 		justify-content: space-between;
@@ -33,6 +46,11 @@
 				color: #737380;
 				font-size: 14px;
 			}
+		}
+
+		> div {
+			display: flex;
+			gap: 16px;
 		}
 
 		button {
