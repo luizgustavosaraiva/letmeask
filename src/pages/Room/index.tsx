@@ -119,7 +119,7 @@ export function Room() {
 								<button
 									className={`${styles.like_button} ${
 										question.likeId && styles.liked
-									}`}
+									} ${isDark && styles.dark}`}
 									type="button"
 									aria-label="Marcar como gostei"
 									onClick={() =>

@@ -4,7 +4,7 @@
 	overflow: hidden;
 
 	background: #fff;
-	border: 1px solid #835afd;
+	border: 1px solid #ffb86c;
 	cursor: pointer;
 
 	display: flex;
@@ -16,11 +16,15 @@
 	}
 
 	div {
-		background: #835afd;
+		background: linear-gradient(145deg, #ff5555, #ffb86c);
 		padding: 9px 12px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+
+		img {
+			margin-right: 10px;
+		}
 	}
 
 	span {

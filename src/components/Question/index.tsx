@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { useTheme } from "../../hooks/useTheme";
 import styles from "./styles.module.scss";
 
 type QuestionProps = {
@@ -19,11 +20,12 @@ export function Question({
 	isHighlighted = false,
 	children,
 }: QuestionProps) {
+	const { isDark } = useTheme();
 	return (
 		<div
 			className={`${styles.question} ${isAnswered && styles.answered} ${
 				isHighlighted && !isAnswered && styles.highlighted
-			}`}>
+			} ${isDark && styles.dark}`}>
 			<p>{content}</p>
 			<footer>
 				<div className={styles.user_info}>

@@ -22,8 +22,12 @@
 
 	&.outlined {
 		background: #fff;
-		border: 1px solid #835afd;
-		color: #835afd;
+		border: 1px solid #ffb86c;
+		color: #ffb86c;
+
+		&.dark {
+			background: #282a36;
+		}
 	}
 
 	&:not(:disabled):hover {

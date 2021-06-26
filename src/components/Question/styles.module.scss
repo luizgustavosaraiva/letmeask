@@ -4,6 +4,20 @@
 	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
 	padding: 24px;
 
+	&.dark {
+		background: #44475a;
+
+		p {
+			color: #f8f8f8;
+		}
+
+		.user_info {
+			span {
+				color: #f8f8f8;
+			}
+		}
+	}
+
 	& + .question {
 		margin-top: 8px;
 	}

@@ -44,19 +44,19 @@ export function NewRoom() {
 			<main className={`${isDark && styles.dark}`}>
 				<div className={styles.main_content}>
 					<img src={isDark ? logoDarkImg : logoImg} alt="Letmeask" />
-					<h2>Criar uma nova sala</h2>
+					<h2>Create a new room</h2>
 
 					<form onSubmit={handleCreateRoom}>
 						<input
 							type="text"
-							placeholder="Nome da sala"
+							placeholder="Room name"
 							onChange={(event) => setNewRoom(event.target.value)}
 							value={newRoom}
 						/>
-						<Button type="submit">Criar sala</Button>
+						<Button type="submit">Create room</Button>
 					</form>
 					<p>
-						Quer entrar em uma sala existente? <Link to="/">Clique aqui</Link>
+						Want to join an existing room? <Link to="/">Click here</Link>
 					</p>
 				</div>
 			</main>

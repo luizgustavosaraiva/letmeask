@@ -12,9 +12,9 @@ export function ThemeSwitch() {
 		return (
 			<div className={styles.centeredIcon}>
 				{isDark ? (
-					<BiMoon size={18} color="#FFF" />
+					<BiMoon size={18} color="#282a36" />
 				) : (
-					<BiSun size={20} color="#835afd" />
+					<BiSun size={20} color="##ff5555" />
 				)}
 			</div>
 		);
@@ -25,8 +25,8 @@ export function ThemeSwitch() {
 				className={styles.switch}
 				onChange={() => handleChangeTheme()}
 				checked={isDark}
-				onColor={"#835afd"}
-				onHandleColor={"#835afd"}
+				onColor={"#ffb86c"}
+				onHandleColor={"#ffb86c"}
 				offColor={"#f8f8f8"}
 				offHandleColor={"#f8f8f8"}
 				checkedIcon

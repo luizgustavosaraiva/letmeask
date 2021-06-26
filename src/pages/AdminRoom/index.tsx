@@ -12,12 +12,14 @@ import checkImg from "../../assets/images/check.svg";
 import answerImg from "../../assets/images/answer.svg";
 import styles from "./styles.module.scss";
 import { QuestionModal } from "../../components/QuestionModal";
+import { useTheme } from "../../hooks/useTheme";
 
 type RoomParams = {
 	id: string;
 };
 
 export function AdminRoom() {
+	const { isDark } = useTheme();
 	const roomId = useParams<RoomParams>().id;
 	const history = useHistory();
 	const { title, questions } = useRoom(roomId);
@@ -67,7 +69,7 @@ export function AdminRoom() {
 	}
 
 	return (
-		<div className={styles.page_room}>
+		<div className={`${styles.page_room} ${isDark && styles.dark}`}>
 			<header>
 				<div className={styles.content}>
 					<img src={logoImg} alt="Letmeask" onClick={() => history.push("/")} />

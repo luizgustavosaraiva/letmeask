@@ -1,5 +1,7 @@
 .page_room {
 	transition: background 0.2s;
+	height: auto;
+	min-height: 100vh;
 	&.dark {
 		background: #282a36;
 
@@ -48,7 +50,7 @@
 
 			span {
 				margin-left: 16px;
-				background: #e559f9;
+				background: linear-gradient(145deg, #ff5555, #ffb86c);
 				border-radius: 9999px;
 				padding: 8px 16px;
 				color: #fff;
@@ -138,6 +140,14 @@
 
 					svg path {
 						stroke: #835afd;
+					}
+
+					&.dark {
+						color: #ffb86c;
+
+						svg path {
+							stroke: #ffb86c;
+						}
 					}
 				}
 			}
