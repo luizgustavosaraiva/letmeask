@@ -7,6 +7,7 @@ import { Question } from "../../components/Question";
 import { RoomCode } from "../../components/RoomCode";
 
 import logoImg from "../../assets/images/logo.svg";
+import logoDarkImg from "../../assets/images/logo-dark.svg";
 import deleteImg from "../../assets/images/delete.svg";
 import checkImg from "../../assets/images/check.svg";
 import answerImg from "../../assets/images/answer.svg";
@@ -72,7 +73,11 @@ export function AdminRoom() {
 		<div className={`${styles.page_room} ${isDark && styles.dark}`}>
 			<header>
 				<div className={styles.content}>
-					<img src={logoImg} alt="Letmeask" onClick={() => history.push("/")} />
+					<img
+						src={isDark ? logoDarkImg : logoImg}
+						alt="Letmeask"
+						onClick={() => history.push("/")}
+					/>
 					<div>
 						<RoomCode code={roomId} />
 						<Button isOutlined onClick={openEndRoomModal}>
