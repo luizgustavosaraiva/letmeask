@@ -1,20 +1,29 @@
-#page-auth {
+.home {
 	display: flex;
 	align-items: stretch;
 	height: 100vh;
+	transition: background 0.2s;
+
+	&.dark {
+		background: #282a36;
+	}
 
 	aside {
-		flex: 7;
+		flex: 6;
 		background: #835afd;
 		color: #fff;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 
-		padding: 120px 80px;
+		&.dark {
+			background: #44475a;
+		}
+
+		padding: 120px 40px;
 
 		img {
-			max-width: 320px;
+			max-width: 380px;
 		}
 
 		strong {
@@ -32,7 +41,7 @@
 	}
 
 	main {
-		flex: 8;
+		flex: 9;
 
 		padding: 0 32px;
 
@@ -41,7 +50,7 @@
 		justify-content: center;
 	}
 
-	.main-content {
+	.main_content {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
@@ -88,7 +97,7 @@
 		}
 	}
 
-	.create-room {
+	.create_room {
 		margin-top: 64px;
 		height: 50px;
 		border-radius: 8px;

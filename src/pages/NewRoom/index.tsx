@@ -1,14 +1,17 @@
 import { FormEvent, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import illustrationImg from "../assets/images/illustration.svg";
-import logoImg from "../assets/images/logo.svg";
+import illustrationImg from "../../assets/images/illustration.svg";
+import logoImg from "../../assets/images/logo.svg";
+import logoDarkImg from "../../assets/images/logo-dark.svg";
 
-import "../styles/auth.scss";
-import { Button } from "../components/Button";
-import { useAuth } from "../hooks/useAuth";
-import { database } from "../services/firebase";
+import styles from "./styles.module.scss";
+import { Button } from "../../components/Button";
+import { useAuth } from "../../hooks/useAuth";
+import { database } from "../../services/firebase";
+import { useTheme } from "../../hooks/useTheme";
 
 export function NewRoom() {
+	const { isDark } = useTheme();
 	const { user } = useAuth();
 	const history = useHistory();
 	const [newRoom, setNewRoom] = useState("");
@@ -25,22 +28,22 @@ export function NewRoom() {
 			authorId: user?.id,
 		});
 
-		history.push(`${firebaseRoom.key}`);
+		history.push(`/rooms/${firebaseRoom.key}`);
 	}
 
 	return (
-		<div id="page-auth">
-			<aside>
+		<div className={`${styles.new_room} ${isDark && styles.dark}`}>
+			<aside className={`${isDark && styles.dark}`}>
 				<img
 					src={illustrationImg}
 					alt="Ilustração simbolizando perguntas e respostas"
 				/>
-				<strong>Crie salas de Q&amp;A ao-vivo</strong>
-				<p>Tire as dúvidas de sua audiência em tempo-real.</p>
+				<strong>Create Q&amp;A rooms to answer your questions!</strong>
+				<p>Your questions answered in real time.</p>
 			</aside>
-			<main>
-				<div className="main-content">
-					<img src={logoImg} alt="Letmeask" />
+			<main className={`${isDark && styles.dark}`}>
+				<div className={styles.main_content}>
+					<img src={isDark ? logoDarkImg : logoImg} alt="Letmeask" />
 					<h2>Criar uma nova sala</h2>
 
 					<form onSubmit={handleCreateRoom}>

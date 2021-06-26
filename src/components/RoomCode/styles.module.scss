@@ -1,4 +1,4 @@
-.room-code {
+.room_code {
 	height: 40px;
 	border-radius: 8px;
 	overflow: hidden;
@@ -8,6 +8,12 @@
 	cursor: pointer;
 
 	display: flex;
+	transition: background 0.2s;
+
+	&.dark {
+		background: #282a36;
+		color: #f8f8f8;
+	}
 
 	div {
 		background: #835afd;

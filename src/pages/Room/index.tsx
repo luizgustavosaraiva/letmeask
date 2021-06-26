@@ -8,13 +8,16 @@ import { Question } from "../../components/Question";
 import { RoomCode } from "../../components/RoomCode";
 
 import logoImg from "../../assets/images/logo.svg";
+import logoDarkImg from "../../assets/images/logo-dark.svg";
 import styles from "./styles.module.scss";
+import { useTheme } from "../../hooks/useTheme";
 
 type RoomParams = {
 	id: string;
 };
 
 export function Room() {
+	const { isDark } = useTheme();
 	const roomId = useParams<RoomParams>().id;
 	const history = useHistory();
 	const { title, questions } = useRoom(roomId);
@@ -58,16 +61,20 @@ export function Room() {
 		}
 	}
 	return (
-		<div className={styles.page_room}>
+		<div className={`${styles.page_room} ${isDark && styles.dark}`}>
 			<header>
 				<div className={styles.content}>
-					<img src={logoImg} alt="Letmeask" onClick={() => history.push("/")} />
+					<img
+						src={isDark ? logoDarkImg : logoImg}
+						alt="Letmeask"
+						onClick={() => history.push("/")}
+					/>
 					<RoomCode code={roomId} />
 				</div>
 			</header>
 
 			<main className={styles.content}>
-				<div className={styles.room_title}>
+				<div className={`${styles.room_title} ${isDark && styles.dark}`}>
 					<h1>Sala {title}</h1>
 					{questions.length > 0 && (
 						<span>
@@ -78,13 +85,14 @@ export function Room() {
 
 				<form onSubmit={handleSendQuestion}>
 					<textarea
+						className={`${isDark && styles.dark}`}
 						placeholder="O que você quer perguntar?"
 						onChange={(event) => setNewQuestion(event.target.value)}
 						value={newQuestion}
 					/>
 					<div className={styles.form_footer}>
 						{user ? (
-							<div className={styles.user_info}>
+							<div className={`${styles.user_info} ${isDark && styles.dark}`}>
 								<img src={user.avatar} alt={user.name} />
 								<span>{user.name}</span>
 							</div>
