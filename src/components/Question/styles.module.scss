@@ -30,6 +30,12 @@
 		background: #f4f0ff;
 		border: 2px solid #835afd;
 
+		&.dark {
+			background: #44475a;
+			border: 2px solid #ffb86c;
+			box-shadow: 0 0 8px 0px #ff5555;
+		}
+
 		footer .user_info span {
 			color: #29292e;
 		}
