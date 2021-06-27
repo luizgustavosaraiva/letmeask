@@ -11,12 +11,14 @@ import { useAuth } from "../../hooks/useAuth";
 import { database } from "../../services/firebase";
 import styles from "./styles.module.scss";
 import { useTheme } from "../../hooks/useTheme";
+import { QuestionModal } from "../../components/QuestionModal";
 
 export function Home() {
 	const { isDark } = useTheme();
 	const history = useHistory();
 	const { user, signInWithGoogle } = useAuth();
 	const [roomCode, setRoomCode] = useState("");
+	const [isClosed, setIsClosed] = useState(false);
 
 	async function handleCreateRoom() {
 		if (!user) {
@@ -40,11 +42,16 @@ export function Home() {
 		}
 
 		if (roomRef.val().endedAt) {
-			alert("Room already closed!");
+			setIsClosed(true);
 			return;
 		}
+		roomRef.val().authorId === user?.id
+			? history.push(`/admin/rooms/${roomCode}`)
+			: history.push(`/rooms/${roomCode}`);
+	}
 
-		history.push(`/rooms/${roomCode}`);
+	function closeModal() {
+		setIsClosed(false);
 	}
 
 	return (
@@ -52,30 +59,39 @@ export function Home() {
 			<aside className={`${isDark && styles.dark}`}>
 				<img
 					src={illustrationImg}
-					alt="Ilustração simbolizando perguntas e respostas"
+					alt='Ilustração simbolizando perguntas e respostas'
 				/>
 				<strong>Create Q&amp;A rooms to answer your questions!</strong>
 				<p>Your questions answered in real time.</p>
 			</aside>
 			<main>
 				<div className={styles.main_content}>
-					<img src={isDark ? logoDarkImg : logoImg} alt="Letmeask" />
+					<img src={isDark ? logoDarkImg : logoImg} alt='Letmeask' />
 					<button className={styles.create_room} onClick={handleCreateRoom}>
-						<img src={googleIconImg} alt="Ícone do Google" />
+						<img src={googleIconImg} alt='Ícone do Google' />
 						Create your room with Google
 					</button>
 					<div className={styles.separator}>or join an existing room</div>
 					<form onSubmit={handleJoinRoom}>
 						<input
-							type="text"
-							placeholder="Room code"
+							type='text'
+							placeholder='Room code'
 							onChange={(event) => setRoomCode(event.target.value)}
 							value={roomCode}
 						/>
-						<Button type="submit">Join</Button>
+						<Button type='submit'>Join</Button>
 					</form>
 				</div>
 			</main>
+			<QuestionModal
+				isOpen={isClosed}
+				confirmButtonAction={closeModal}
+				closeModal={closeModal}
+				title='Sala encerrada!'
+				text='A sala informada foi encerrada e não é mais possível enviar perguntas'
+				confirmButtonText='OK'
+				cancelButtonText=''
+			/>
 		</div>
 	);
 }

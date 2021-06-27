@@ -28,21 +28,30 @@
 
 	&.highlighted {
 		background: #f4f0ff;
-		border: 2px solid #835afd;
+		border: 2px solid #ff5555;
+
+		footer .user_info span {
+			color: #29292e;
+		}
 
 		&.dark {
 			background: #44475a;
 			border: 2px solid #ffb86c;
 			box-shadow: 0 0 8px 0px #ff5555;
-		}
 
-		footer .user_info span {
-			color: #29292e;
+			footer .user_info span {
+				color: #f8f8f8;
+			}
 		}
 	}
 
 	&.answered {
 		background: #dbdcdd;
+
+		&.dark {
+			background: #282a36;
+			border: 2px solid #50fa7b;
+		}
 	}
 
 	footer {

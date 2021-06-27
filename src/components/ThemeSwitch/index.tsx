@@ -1,4 +1,4 @@
-import { ReactNode, useContext } from "react";
+import { useContext } from "react";
 import Switch from "react-switch";
 import { BiSun, BiMoon } from "react-icons/bi";
 import { ThemeContext } from "../../context/ThemeContext";
@@ -12,9 +12,9 @@ export function ThemeSwitch() {
 		return (
 			<div className={styles.centeredIcon}>
 				{isDark ? (
-					<BiMoon size={18} color="#282a36" />
+					<BiMoon size={18} color='#282a36' />
 				) : (
-					<BiSun size={20} color="##ff5555" />
+					<BiSun size={20} color='##ff5555' />
 				)}
 			</div>
 		);

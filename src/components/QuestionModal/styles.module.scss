@@ -10,6 +10,29 @@
 	margin-right: -50%;
 	transform: translate(-50%, -50%);
 
+	&.dark {
+		background: #282a36;
+		border-color: #ffb86c;
+
+		.modal {
+			h2 {
+				color: #f8f8f8;
+			}
+
+			> svg {
+				path {
+					stroke: #ffb86c;
+				}
+			}
+
+			> div {
+				& button + button {
+					background: linear-gradient(145deg, #ff5555, #ffb86c);
+				}
+			}
+		}
+	}
+
 	.modal {
 		display: flex;
 		justify-content: center;

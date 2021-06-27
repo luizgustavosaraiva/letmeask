@@ -75,7 +75,7 @@ export function AdminRoom() {
 				<div className={styles.content}>
 					<img
 						src={isDark ? logoDarkImg : logoImg}
-						alt="Letmeask"
+						alt='Letmeask'
 						onClick={() => history.push("/")}
 					/>
 					<div>
@@ -87,10 +87,10 @@ export function AdminRoom() {
 							isOpen={endRoomModalIsOpen}
 							confirmButtonAction={handleEndRoom}
 							closeModal={closeEndRoomModal}
-							title="Encerrar sala"
-							text="Tem certeza que você deseja encerrar esta sala?"
-							confirmButtonText="Sim, encerrar"
-							cancelButtonText="Cancelar"
+							title='Encerrar sala'
+							text='Tem certeza que você deseja encerrar esta sala?'
+							confirmButtonText='Sim, encerrar'
+							cancelButtonText='Cancelar'
 						/>
 					</div>
 				</div>
@@ -118,24 +118,24 @@ export function AdminRoom() {
 								{!question.isAnswered && (
 									<React.Fragment>
 										<button
-											type="button"
+											type='button'
 											onClick={() => handleCheckQuestionAnswered(question.id)}>
 											<img
 												src={checkImg}
-												alt="Marcar pergunta como respondida"
+												alt='Marcar pergunta como respondida'
 											/>
 										</button>
 										<button
-											type="button"
+											type='button'
 											onClick={() => handleHighlightQuestion(question.id)}>
-											<img src={answerImg} alt="Dar destaque à pergunta" />
+											<img src={answerImg} alt='Dar destaque à pergunta' />
 										</button>
 									</React.Fragment>
 								)}
 								<button
-									type="button"
+									type='button'
 									onClick={() => openDeleteQuestionModal(question.id)}>
-									<img src={deleteImg} alt="Remover pergunta" />
+									<img src={deleteImg} alt='Remover pergunta' />
 								</button>
 							</Question>
 						</>
@@ -146,10 +146,10 @@ export function AdminRoom() {
 				isOpen={deleteQuestionModalIsOpen}
 				confirmButtonAction={() => handleDeleteQuestion(currentQuestion)}
 				closeModal={closeDeleteQuestionModal}
-				title="Excluir pergunta"
-				text="Tem certeza que você deseja excluir esta pergunta?"
-				confirmButtonText="Sim, excluir"
-				cancelButtonText="Cancelar"
+				title='Excluir pergunta'
+				text='Tem certeza que você deseja excluir esta pergunta?'
+				confirmButtonText='Sim, excluir'
+				cancelButtonText='Cancelar'
 			/>
 		</div>
 	);

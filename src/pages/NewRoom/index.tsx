@@ -28,7 +28,7 @@ export function NewRoom() {
 			authorId: user?.id,
 		});
 
-		history.push(`/rooms/${firebaseRoom.key}`);
+		history.push(`/admin/rooms/${firebaseRoom.key}`);
 	}
 
 	return (
@@ -36,27 +36,27 @@ export function NewRoom() {
 			<aside className={`${isDark && styles.dark}`}>
 				<img
 					src={illustrationImg}
-					alt="Ilustração simbolizando perguntas e respostas"
+					alt='Ilustração simbolizando perguntas e respostas'
 				/>
 				<strong>Create Q&amp;A rooms to answer your questions!</strong>
 				<p>Your questions answered in real time.</p>
 			</aside>
 			<main className={`${isDark && styles.dark}`}>
 				<div className={styles.main_content}>
-					<img src={isDark ? logoDarkImg : logoImg} alt="Letmeask" />
+					<img src={isDark ? logoDarkImg : logoImg} alt='Letmeask' />
 					<h2>Create a new room</h2>
 
 					<form onSubmit={handleCreateRoom}>
 						<input
-							type="text"
-							placeholder="Room name"
+							type='text'
+							placeholder='Room name'
 							onChange={(event) => setNewRoom(event.target.value)}
 							value={newRoom}
 						/>
-						<Button type="submit">Create room</Button>
+						<Button type='submit'>Create room</Button>
 					</form>
 					<p>
-						Want to join an existing room? <Link to="/">Click here</Link>
+						Want to join an existing room? <Link to='/'>Click here</Link>
 					</p>
 				</div>
 			</main>
