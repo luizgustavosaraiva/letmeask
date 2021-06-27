@@ -1,1 +1,1 @@
-<img src="/src/assets/logo.svg">
+<img src="https://github.com/luizgustavosaraiva/letmeask/blob/main/src/assets/images/logo.png">
